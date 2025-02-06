@@ -1,4 +1,5 @@
-
+:#Talkatone
+:#Talkatone去广告加分流
 [Rule]
 # 以下为该软件部分去广告规则
 DOMAIN-KEYWORD,googleads,REJECT-DROP
