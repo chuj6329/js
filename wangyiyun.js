@@ -23,10 +23,6 @@
 ^https?:\/\/interface3?\.music\.163\.com\/eapi\/(homepage\/|v6\/)?playlist\/ url script-request-header https://raw.githubusercontent.com/WeiGiegie/666/main/wangyiyun.js
 # 会员认证
 ^https?:\/\/interface3?\.music\.163\.com\/eapi\/vipauth\/app\/auth\/(soundquality\/)?query url script-request-header https://raw.githubusercontent.com/WeiGiegie/666/main/wangyiyun.js
-# 会员音质
-^https?:\/\/interface3?\.music\.163\.com\/eapi\/vipauth\/app\/auth\/sound\/quality url script-request-header https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/wangyiyun.js
-# 会员臻音全景声
-^https?:\/\/interface3?\.music\.163\.com\/eapi\/vipauth\/app\/auth\/audio\/profile url script-request-header https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/wangyiyun.js
 
 [mitm] 
 hostname = *music.163.com,
@@ -37,5 +33,5 @@ var modifiedHeaders = $request.headers;
 
 modifiedHeaders['Cookie'] = 'MUSIC_U=005A889DBD728B02E7D92DD388BC405EC661B5451AF62193D28AB2BBC0B6E0850B55AAE974A305B638BC9BF8E795809F8964D58301F6DF9004BA7CFE2C1B5E56DD2AC51000F80620317F483A4296C0DA545BCAAD7176F41FAD084E33B3A59339CD32535FBED83869C98FF0062750FFDF33F23A068D1F3D8FFCCADE349D814ACE40B52027770229024CD1049AFD07A835C1FB7D308AC991AB559BA64D124CDB26987AA3C511B5C83229819DF52BBF52FBC060B503B69F3CAC885E0CE8A5F262F813594F9257E4752A7A310D8CB8433A150F068C31945C7C0CE14AEB98F57CC3C9CC0B47A9F4FD60B7301BCDAC99F4C93E9B51EF11A086B2DFF2F5AD5ECD193B7D8EDBA4F4CD97E38C0DF9CDE99AF7CFE4D09BF31E34910D1FEC07A9825332E604CA;appver=9.2.50; deviceId=c37795fa7cc0bd4d38b242e3da8497a6; os=iPhone OS; osver=18.2; machineid=iPhone17.2; ' ;
 
-delete modifiedHeaders['MConfig-Info'];
+delete headers = ['MConfig-Info'];
 $done({headers : modifiedHeaders});
