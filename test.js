@@ -7,13 +7,13 @@
 播放器会员歌曲
 ^https?:\/\/interface\d?\.music\.163\.com\/eapi\/v3\/song\/detail url script-request-header 
 ^https?:\/\/interface\d?\.music\.163\.com\/eapi\/song\/(?:chorus|enhance\/|play\/|type\/detail\/get) url script-request-header 
-^https?:\/\/interface\d?\.music\.163\.com\/eapi\/(?:album\/|v1\/artist\/top\/song|v3\/discovery\/recommend\/songs) url script-request-header 
+^https?:\/\/interface\d?\.music\.163\.com\/eapi\/(?:album\/|v1\/artist\/top\/song|v3\/discovery\/recommend\/songs) url script-request-body 
 侧边栏会员等级
 ^https:\/\/interface3?\.music\.163\.com\/eapi\/vipnewcenter\/app\/resource\/newaccountpage url script-request-header 
 首页歌单会员歌曲
 ^https?:\/\/interface3?\.music\.163\.com\/eapi\/(homepage\/|v6\/)?playlist\/ url script-request-header 
 会员认证
-^https?:\/\/interface\d?\.music\.163\.com\/eapi\/vipauth\/app\/auth\/(soundquality\/)?query url script-request-header 
+^https?:\/\/interface\d?\.music\.163\.com\/eapi\/vipauth\/app\/auth\/(soundquality\/)?query url script-analyze-echo-response 
 
 [mitm]
 hostname = interface*music.163.com,
