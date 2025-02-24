@@ -5,9 +5,9 @@
 搜索结果会员歌曲
 ^https:\/\/interface3?\.music\.163\.com\/eapi\/search\/complex\/(page|rec\/song\/get) url script-request-header https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/test.js
 播放器会员歌曲
-^https:\/\/interface3?\.music\.163\.com\/eapi\/v3\/song\/detail url http-request https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/test.js
-^https:\/\/interface3?\.music\.163\.com\/eapi\/song\/(chorus|enhance\/|play\/|type\/detail\/get) url http-request https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/test.js
-^https:\/\/interface3?\.music\.163\.com\/eapi\/(v1\/artist\/top\/song|v3\/discovery\/recommend\/songs) url http-request https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/test.js
+^https:\/\/interface3?\.music\.163\.com\/eapi\/v3\/song\/detail url request-header https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/test.js
+^https:\/\/interface3?\.music\.163\.com\/eapi\/song\/(chorus|enhance\/|play\/|type\/detail\/get) url request-header https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/test.js
+^https:\/\/interface3?\.music\.163\.com\/eapi\/(v1\/artist\/top\/song|v3\/discovery\/recommend\/songs) url request-header https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/test.js
 侧边栏会员等级
 ^https:\/\/interface3?\.music\.163\.com\/eapi\/vipnewcenter\/app\/resource\/newaccountpage url script-request-header https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/test.js
 首页歌单会员歌曲
