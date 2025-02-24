@@ -5,7 +5,7 @@
 搜索结果会员歌曲
 ^https:\/\/interface3?\.music\.163\.com\/eapi\/search\/complex\/(page|rec\/song\/get) url script-request-header 
 播放器会员歌曲
-^https?:\/\/interface\d?\.music\.163\.com\/eapi\/v3\/song\/detail url script-request-header 
+https?:\/\/(?:ipv4|interface\d?)\.music\.163\.com\/e?api\/(mine\/(collect|rn)\/header\/info|v\d\/user\/detail\/\d+|vipnewcenter\/app\/resource\/newaccountpage|music-vip-membership\/(client|front)\/vip\/info|batch|playlist\/privilege|search\/complex\/page|v\d\/(discovery\/recommend\/songs|playlist\/detail)) url request-header (\r\n)x-aeapi:.+(\r\n) request-header $1x-aeapi: false$2
 ^https?:\/\/interface\d?\.music\.163\.com\/eapi\/song\/(?:chorus|enhance\/|play\/|type\/detail\/get) url script-request-header 
 ^https?:\/\/interface\d?\.music\.163\.com\/eapi\/(?:album\/|v1\/artist\/top\/song|v3\/discovery\/recommend\/songs) url script-request-body 
 侧边栏会员等级
