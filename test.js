@@ -1,4 +1,7 @@
 let url = $request.url;
+
+
+{
 const headers = Object.fromEntries(Object.entries($request.headers).map(([key, value]) => [key.toLowerCase(), value]));
 
 Object.assign(headers, {
@@ -8,3 +11,4 @@ Object.assign(headers, {
 });
 
 $done({ headers });
+}
