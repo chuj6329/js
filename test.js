@@ -39,4 +39,3 @@ Object.assign(modifiedHeaders, {
 });
 
 $done({ headers: modifiedHeaders });
-这个脚本那里出现了错误
