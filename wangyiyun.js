@@ -3,7 +3,7 @@
 *
 软件版本：9.2.50
 [rewrite_local]
-# > 网易云音乐黑胶vip
+# > 网易云音乐黑胶svip
 # 播放器会员皮肤
 ^https?:\/\/interface\d?\.music\.163\.com\/eapi\/playermode\/ url script-request-header https://raw.githubusercontent.com/chuj6329/js/main/wangyiyun.js
 # 搜索结果会员歌曲
