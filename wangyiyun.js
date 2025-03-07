@@ -29,7 +29,7 @@
 ^https?:\/\/interface3?\.music\.163\.com\/eapi\/vipauth\/app\/auth\/(soundquality\/)?query url script-request-header https://raw.githubusercontent.com/chuj6329/js/main/wangyiyun.js
 
 [mitm] 
-hostname = *music.163.com,
+hostname = interface*music.163.com,
 
 *
 *
