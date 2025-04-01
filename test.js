@@ -2,7 +2,7 @@
 *
 *
 [rewrite_local]
-^https:\/\/api\.swiftgram\.app\/v0\/settings$ script-response-body swiftgram_pro.js
+^https:\/\/api\.swiftgram\.app\/v0\/settings$ url script-response-body https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/test.js
 
 [mitm]
 hostname = api.swiftgram.app
