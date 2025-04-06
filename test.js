@@ -2,13 +2,56 @@
 *
 *
 [rewrite_local]
-^https:\/\/api\.swiftgram\.app\/v0\/settings$ url script-response-body https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/test.js
+^https:\/\/api\.revenuecat\.com\/v1\/subscribers\/\$RCAnonymousID%3A[a-f0-9]+$
 
 [mitm]
-hostname = api.swiftgram.app
-
+hostname = api.revenuecat.com
 *
 *
 */
 
-let obj=JSON['\x70\x61\x72\x73\x65']($response['\x62\x6f\x64\x79']);if(obj['\x67\x6c\x6f\x62\x61\x6c']){obj['\x67\x6c\x6f\x62\x61\x6c']['\x61\x6e\x6e\x6f\x75\x6e\x63\x65\x6d\x65\x6e\x74\x73\x5f\x64\x61\x74\x61']="\x5b\x5d";obj['\x67\x6c\x6f\x62\x61\x6c']['\x70\x61\x79\x6d\x65\x6e\x74\x73\x5f\x65\x6e\x61\x62\x6c\x65\x64']=false;obj['\x67\x6c\x6f\x62\x61\x6c']['\x63\x61\x6e\x5f\x67\x72\x61\x6e\x74']=true}obj['\x75\x73\x65\x72']=obj['\x75\x73\x65\x72']||{};obj['\x75\x73\x65\x72']['\x69\x73\x5f\x70\x72\x6f']=true;obj['\x75\x73\x65\x72']['\x63\x61\x6e\x5f\x62\x75\x79\x5f\x69\x6e\x5f\x62\x65\x74\x61']=true;obj['\x75\x73\x65\x72']['\x63\x61\x6e\x5f\x73\x65\x6e\x64\x5f\x74\x65\x6c\x65\x73\x63\x6f\x70\x65']=true;$done({body:JSON['\x73\x74\x72\x69\x6e\x67\x69\x66\x79'](obj)});
+const response = {
+  request_date_ms: 1743919753314,
+  request_date: "2025-04-06T06:09:13Z",
+  subscriber: {
+    non_subscriptions: {},
+    first_seen: "2025-04-06T06:09:13Z",
+    original_application_version: null,
+    other_purchases: {},
+    management_url: null,
+    subscriptions: {},
+    entitlements: {},
+    original_purchase_date: true,
+    original_app_user_id: "$RCAnonymousID:e976d945222e460aa3db76836fa4cbdd",
+    last_seen: "2025-04-06T06:09:13Z"
+  }
+};
+
+
+const modifiedResponse = {
+  ...response,
+  subscriber: {
+    ...response.subscriber,
+    entitlements: {
+      pro: {
+        expires_date: null,
+        product_identifier: "your.product.id",
+        purchase_date: "2025-04-06T06:09:13Z"
+      }
+    },
+    subscriptions: {
+      "your.product.id": {
+        billing_issues_detected_at: null,
+        expires_date: null,
+        is_sandbox: false,
+        original_purchase_date: "2025-04-06T06:09:13Z",
+        period_type: "active",
+        purchase_date: "2025-04-06T06:09:13Z",
+        store: "app_store",
+        unsubscribe_detected_at: null
+      }
+    }
+  }
+};
+
+$done({ body: JSON.stringify(modifiedResponse) });
