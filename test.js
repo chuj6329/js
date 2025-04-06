@@ -2,7 +2,7 @@
 *
 *
 [rewrite_local]
-^https:\/\/api\.revenuecat\.com\/v1\/subscribers\/\$RCAnonymousID%3A[a-f0-9]+$
+^https:\/\/api\.revenuecat\.com\/v1\/subscribers\/\$RCAnonymousID%3A[a-f0-9]+$ urlscroipt-response-body https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/test.js
 
 [mitm]
 hostname = api.revenuecat.com
