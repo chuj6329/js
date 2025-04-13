@@ -2,7 +2,7 @@
 *
 *
 [rewrite_local]
-^https:\/\/api\.revenuecat\.com\/v1\/subscribers\/\$RCAnonymousID%3A[a-f0-9]+$ url script-response-body https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/test.js
+^https:\/\/api\.revenuecat\.com\/v1\/subscribers\/\$RCAnonymousID%3A9b7eeae656a24635bd5e0198e32c871e$ url script-response-body https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/test.js
 
 [mitm]
 hostname = api.revenuecat.com
@@ -14,28 +14,20 @@ hostname = api.revenuecat.com
 
 let obj = JSON.parse($response.body);
 
-
-const productId = "your.product.id";
-const entitlementId = "pro";
-
-obj.subscriber.entitlements = {
-  [entitlementId]: {
-    expires_date: null,
-    product_identifier: productId,
-    purchase_date: "2025-04-06T06:09:13Z"
+obj.subscriber.subscriptions = {
+  "pro.monthly": {
+    "expires_date": "2099-12-31T23:59:59Z",
+    "original_purchase_date": "2022-01-01T00:00:00Z",
+    "purchase_date": "2022-01-01T00:00:00Z",
+    "store": "app_store",
+    "ownership_type": "PURCHASED"
   }
 };
 
-obj.subscriber.subscriptions = {
-  [productId]: {
-    billing_issues_detected_at: null,
-    expires_date: null,
-    is_sandbox: false,
-    original_purchase_date: "2025-04-06T06:09:13Z",
-    period_type: "normal",
-    purchase_date: "2025-04-06T06:09:13Z",
-    store: "app_store",
-    unsubscribe_detected_at: null
+obj.subscriber.entitlements = {
+  "pro": {
+    "product_identifier": "pro.monthly",
+    "expires_date": "2099-12-31T23:59:59Z"
   }
 };
 
