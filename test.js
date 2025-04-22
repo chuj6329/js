@@ -2,33 +2,29 @@
 *
 *
 [rewrite_local]
-^https:\/\/api\.revenuecat\.com\/v1\/subscribers\/\$RCAnonymousID%3A9b7eeae656a24635bd5e0198e32c871e$ url script-response-body https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/test.js
+^https:\/\/api\.pico\.bendingspoonsapps\.com\/v4\/events$ url script-response-body https://raw.githubusercontent.com/chuj6329/js/refs/heads/main/test.js
 
 [mitm]
-hostname = api.revenuecat.com
+hostname = api.pico.bendingspoonsapps.com
 *
 *
 */
 
 
 
-let obj = JSON.parse($response.body);
+let body = $request.body;
 
-obj.subscriber.subscriptions = {
-  "pro.monthly": {
-    "expires_date": "2099-12-31T23:59:59Z",
-    "original_purchase_date": "2022-01-01T00:00:00Z",
-    "purchase_date": "2022-01-01T00:00:00Z",
-    "store": "app_store",
-    "ownership_type": "PURCHASED"
+try {
+  let obj = JSON.parse(body);
+
+  if (obj?.events?.[0]?.user?.info?.is_free === false) {
+    obj.events[0].user.info.is_free = true;
+    console.log("is_free modified to true in request");
   }
-};
 
-obj.subscriber.entitlements = {
-  "pro": {
-    "product_identifier": "pro.monthly",
-    "expires_date": "2099-12-31T23:59:59Z"
-  }
-};
+  body = JSON.stringify(obj);
+} catch (e) {
+  console.log("JSON parse error:", e);
+}
 
-$done({ body: JSON.stringify(obj) });
+$done({ body });
