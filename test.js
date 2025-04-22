@@ -12,19 +12,34 @@ hostname = api.pico.bendingspoonsapps.com
 
 
 
+// fonts_isfree_unlock.js
 let body = $request.body;
 
 try {
   let obj = JSON.parse(body);
 
-  if (obj?.events?.[0]?.user?.info?.is_free === false) {
-    obj.events[0].user.info.is_free = true;
-    console.log("is_free modified to true in request");
+  let userInfo = obj?.events?.[0]?.user?.info;
+
+  if (userInfo) {
+    if (userInfo.is_free === false) {
+      userInfo.is_free = true;
+      console.log("✅ is_free → true");
+    }
+
+    if (userInfo.installed_before_pico === false) {
+      userInfo.installed_before_pico = true;
+      console.log("✅ installed_before_pico → true");
+    }
+
+    if (userInfo.is_baseline === false) {
+      userInfo.is_baseline = true;
+      console.log("✅ is_baseline → true");
+    }
   }
 
   body = JSON.stringify(obj);
 } catch (e) {
-  console.log("JSON parse error:", e);
+  console.log("❌ JSON parse error:", e);
 }
 
 $done({ body });
